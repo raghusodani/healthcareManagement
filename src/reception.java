@@ -1,87 +1,38 @@
 
 public class reception {
 	
+	private int register_id;
+	private String register_name;
+	private int charges;
+	
+	
+	public reception(String regname,int regid,int pay) {
+		register_id=regid;
+		register_name=regname;
+		charges=pay;
+	}
 
-
-
-
-	  class person{
-		private  String name;
-		private  int contact_no;
-		private String gender;
-		private int age;
+	
+	
+	public int payment(int paid) {
+		if(paid==charges) 
+			{ System.out.println("payment successful");}
+		else
+			System.out.println("payment unsuccessfull");
 		
-		
-		
-		public person(String n,String gen,int cont,int a) {
-			name=n;
-			gender=gen;
-			
-			contact_no=cont;
-			age=a;
-		}
-		
-		public  String getName() {
-			return name;
-		}
-		
-		public int getContact() {
-			
-			return contact_no;
-		}
-		
-		public String getGender() {
-			return gender;
-		}
-		
-		
-		
-		
-		
+		return paid;
+	
+	}
+   
+	public void report() {
 		
 	}
 	
-	
-	 class patient extends person{
-		private int patient_id;
-		private boolean covid;
-		private String blood_group;
-		private int height;
-		private int weight;
-		
-		
-		public patient(String n,String gen,int cont,int a,boolean cov,String blood,int h,int w){
-			super(n,gen,cont,a);
-			covid=cov;
-			blood=blood_group;
-			h=height;
-			w=weight;
-			
-		}
-		public String getBloodGroup() {
-			return blood_group;
-		}
-		
-		public  boolean getCovidStatus() {
-			return covid;
-		}
-		
-		public int getHeight() {
-			
-			return height;
-		}
-		
-		public int getWeight() {
-			return weight;
-		}
-		
-		public static void main(String[] args) {
-			patient raghu=new patient("raghu","male",1,2,true,"A+",1,1);
-			
-
-			}
+	public void invite_doctor() {
 		
 	}
+
+	
 	
 }
 	

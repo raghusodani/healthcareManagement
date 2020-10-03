@@ -137,6 +137,9 @@
 			public int getAge() {
 				return super.getAge();
 			}
+		       public bool reports_all(){
+		       
+		       }
 			
 			
 		}

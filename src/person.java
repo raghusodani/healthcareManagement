@@ -6,7 +6,7 @@
 			private String gender;
 			private int age;
 			
-			
+			public person() {}
 			
 			public person(String n,String gen,int cont,int a) {
 				name=n;

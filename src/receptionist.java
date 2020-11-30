@@ -6,6 +6,9 @@ public class receptionist extends person {
 	 
 		 id = i;
 	 }
+	 public receptionist() {
+		super(); 
+	 }
 	 boolean check_room_availability(hospitals a) {
 		 if(a.getAvailable_rooms()>0) {
 			 return true;
@@ -13,13 +16,16 @@ public class receptionist extends person {
 		 else
 			 return false;
 	 }
-	 void book_room(hospitals a) {
-		 if(check_room_availability(a))
+	 boolean book_room(hospitals a) {
+		 if(check_room_availability(a)) {
 			 a.setAvailable_rooms(a.getAvailable_rooms() - 1);
-		 else
+			 return true;
+				 }
+		 else {
 			 System.out.println("room not available");
+			 return false;
+			 }
 	 }
-	 
 	 void generate_bill() {
 		 
 	 }

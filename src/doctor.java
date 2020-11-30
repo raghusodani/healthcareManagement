@@ -2,7 +2,9 @@
 			 private int doctor_id;
 			 private boolean doctor_status;
 			 int charges;
-			 
+			 public doctor(String n,String gen,int cont,int a) {
+				 super(n,gen,cont,a);
+			 }
 			 
 			 public doctor(String n,String gen,int cont,int a,int id,boolean stat,int c) {
 				 super(n,gen,cont,a);
@@ -10,6 +12,7 @@
 				 doctor_status=stat;
 				 charges = c;
 				 }
+			 
 			 
 			
 			 

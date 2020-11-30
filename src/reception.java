@@ -1,13 +1,13 @@
 
 public class reception {
 	
-	private int register_id;
+	//private int register_id;
 	private String register_name;
 	private int charges;
 	
 	
-	public reception(String regname,int regid,int pay) {
-		register_id=regid;
+	public reception(String regname,int pay) {
+		//register_id=regid;
 		register_name=regname;
 		charges=pay;
 	}

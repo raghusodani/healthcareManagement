@@ -9,23 +9,6 @@ public class receptionist extends person {
 	 public receptionist() {
 		super(); 
 	 }
-	 boolean check_room_availability(hospitals a) {
-		 if(a.getAvailable_rooms()>0) {
-			 return true;
-		 }
-		 else
-			 return false;
-	 }
-	 boolean book_room(hospitals a) {
-		 if(check_room_availability(a)) {
-			 a.setAvailable_rooms(a.getAvailable_rooms() - 1);
-			 return true;
-				 }
-		 else {
-			 System.out.println("room not available");
-			 return false;
-			 }
-	 }
 	 void generate_bill() {
 		 
 	 }

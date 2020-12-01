@@ -9,7 +9,14 @@ public class receptionist extends person {
 	 public receptionist() {
 		super(); 
 	 }
-	 void generate_bill() {
+	 int make_bill(int r) {
+		 int amt;
+		 if(r==1) {
+			 
+		 }
+		 
+		 
+		return amt;
 		 
 	 }
 	 

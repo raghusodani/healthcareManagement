@@ -52,7 +52,7 @@ class login extends Admin{
 		    	     doctor a = new doctor(name,gender,phnNo,age);
 		    	     doctor_all[no_of_doctors]=a;
 		    	     no_of_doctors++;
-		    	     System.out.println(no_of_doctors);
+		    	    // System.out.println(no_of_doctors);
 		    	     JFrame success = new JFrame("success");
 		    	     JLabel l5 = new JLabel("successfully resgistered");
 		    	     l5.setBounds(700,300,155,20);
@@ -109,7 +109,7 @@ class login extends Admin{
 		    	     patient a = new patient(name,gender,phnNo,age,bg);
 		    	     patients_all[no_of_patients]=a;
 		    	     no_of_patients++;
-		    	     doctors_list(a);
+		    	     doctors_button_list(a);
 		    	 }
 		     });
 		     pat.setSize(1920,1080);  
@@ -118,6 +118,80 @@ class login extends Admin{
 		     
 		     
 		}
+	    public static void make_bill(patient a) {
+	    	JFrame pat =new JFrame("Patient detalis and bill");
+	    	JLabel l0=new JLabel("Name:");
+	    	JLabel l1=new JLabel("Age:");
+	    	JLabel l2=new JLabel("Gender:");
+	    	JLabel l3=new JLabel("BG :");
+	    	JLabel l4=new JLabel("Contact no.:");
+	    	JLabel l5=new JLabel(a.getName());
+	    	JLabel l6=new JLabel(Integer.toString(a.getAge()));
+	    	JLabel l7=new JLabel(a.getGender());
+	    	JLabel l8=new JLabel(a.getBlood_group());
+	    	JLabel l9=new JLabel(Integer.toString(a.getContact()));
+	    	 l0.setBounds(500,100,155,20);
+		     l1.setBounds(500,140,155,20);
+		     l2.setBounds(500,180,155,20);
+		     l3.setBounds(500,220,155,20);
+		     l4.setBounds(500,260,155,20);
+		     l5.setBounds(600,100,155,20);
+		     l6.setBounds(600,140,155,20);
+		     l7.setBounds(600,180,155,20);
+		     l8.setBounds(600,220,155,20);
+		     l9.setBounds(600,260,155,20);
+		     pat.add(l0);
+		     pat.add(l1);
+		     pat.add(l2);
+		     pat.add(l3);
+		     pat.add(l4);
+		     pat.add(l5);
+		     pat.add(l6);
+		     pat.add(l7);
+		     pat.add(l8);
+		     pat.add(l9);
+		     int r = a.getStatus();
+		   //  JLabel test=new JLabel(Integer.toString(r));
+		    // test.setBounds(600,300,155,20);
+		    // pat.add(test);
+		     int amt = 100;
+		     if(r==1) {
+		    	 JLabel l10 = new JLabel("Doctor Fees : "+ amt);
+		    	 JLabel l11 = new JLabel("Total amount to be paid : "+amt);
+		         l10.setBounds(600,300,155,20);
+			     l11.setBounds(600,340,155,20);
+			     pat.add(l10);
+			     pat.add(l11);
+		     }
+		     if(r==0) {
+		    	 JLabel l10 = new JLabel("Doctor Fees : "+ amt);
+		    	 JLabel l11 = new JLabel("Isolation Ward : "+ 5000);
+		    	 JLabel l12 = new JLabel("Total amount to be paid : 5100 ");
+		    	 l10.setBounds(600,300,155,20);
+			     l11.setBounds(600,340,155,20);
+			     l12.setBounds(600,380,155,20);
+			     pat.add(l10);
+			     pat.add(l11);
+			     pat.add(l12);
+			     
+		     }
+		     if(r==2) {
+		    	 JLabel l10 = new JLabel("Doctor Fees : "+ amt);
+		    	 JLabel l11 = new JLabel("Normal Ward : "+ 3000);
+		    	 JLabel l12 = new JLabel("Total amount to be paid : 3100");
+		    	 l10.setBounds(600,300,155,20);
+			     l11.setBounds(600,340,155,20);
+			     l12.setBounds(600,380,155,20);
+			     pat.add(l10);
+			     pat.add(l11);
+			     pat.add(l12);
+		     }
+		     pat.setSize(1920,1080);  
+		     pat.setLayout(null);  
+		     pat.setVisible(true); 
+		     
+		     
+	    }	    
 	    public static void Patient_list() {
 	    	JFrame pl =new JFrame("Patient List");
 	    	for(int i=0;i<no_of_patients;i++) {
@@ -153,6 +227,7 @@ class login extends Admin{
 	    	arr[2]=sugar;
 	    	arr[3]=bp;
 	    	int return_wala = d.check_report(arr);
+	    	a.setStatus(return_wala);
 	    	if(return_wala == 0) {
 	    		JFrame rw = new JFrame("Isolation!!!!");
 	    		JLabel l1 = new JLabel("you have been reported corona positive and u have some other fatal diseases also, ");
@@ -217,12 +292,12 @@ class login extends Admin{
 		    	H1.book_normal_ward();
 	    	}
 	    	}
-	    public static void doctors_list(patient a) {
+	    public static void doctors_button_list(patient a) {
 		JFrame dl=new JFrame("Doctors List");
 		for(int i=0;i<no_of_doctors;i++) {
 			JButton b=new JButton(doctor_all[i].getName());
 			int height=100;
-			b.setBounds(700,height+(20*i),155,30);
+			b.setBounds(700,height+(50*i),155,30);
 			dl.add(b);
 			int refer =i;
 			b.addActionListener( new ActionListener()
@@ -240,9 +315,28 @@ class login extends Admin{
 		dl.setLayout(null);
 		dl.setVisible(true);
 	}
-	    
-	    
-	    public static void bill() {
+	    public static void Patient_button_list() {
+	    	JFrame pl=new JFrame("patient List");
+			for(int i=0;i<no_of_patients;i++) {
+				JButton b=new JButton(patients_all[i].getName());
+				int height=100;
+				b.setBounds(700,height+(20*i),155,30);
+				pl.add(b);
+				int refer =i;
+				b.addActionListener( new ActionListener()
+		        {
+		            public void actionPerformed(ActionEvent e)
+		            {
+		               make_bill(patients_all[refer]);
+		            }
+
+					
+		        });
+			}
+
+			pl.setSize(1920,1080);
+			pl.setLayout(null);
+			pl.setVisible(true);
 	    		    }
 	    
 	    
@@ -300,7 +394,8 @@ class login extends Admin{
         {
             public void actionPerformed(ActionEvent e)
             {
-                bill();
+                Patient_button_list();
+                
             }
         });
         
@@ -314,9 +409,9 @@ class login extends Admin{
         f.setVisible(true);   
     }  
 }
-class Hospital extends Navigation{ 
+class Menu extends Navigation{ 
      public static void main(String[] args) {  
-    	 Hospital h1 = new Hospital();
+    	 Menu h1 = new Menu();
     	 h1.Home();  	 
 }
 }

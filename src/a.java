@@ -1,4 +1,6 @@
-import javax.swing.*;  
+import javax.swing.*;
+
+  
 import java.awt.*;  
 import java.awt.event.*;
 class Admin{
@@ -153,10 +155,19 @@ class login extends Admin{
 	    	int return_wala = d.check_report(arr);
 	    	if(return_wala == 0) {
 	    		JFrame rw = new JFrame("Isolation!!!!");
-	    		JLabel l1 = new JLabel("you have been reported corona positive and u have some other fatal diseases also, you are refered to Isoltion Ward");
-	    		l1.setPreferredSize(new Dimension(250, 100));
-	    		l1.setBounds(700,100,155,20);
+	    		JLabel l1 = new JLabel("you have been reported corona positive and u have some other fatal diseases also, ");
+	    		JLabel l2=new JLabel("you are refered to Isoltion Ward!!");		
+	    		l1.setBounds(100,100,1100,40);
+	    		l2.setBounds(100,150,1100,40);
+	    		Font font = new Font("Courier", Font.BOLD,20);
+	    		l1.setForeground(Color.RED);
+	    		l2.setForeground(Color.RED);
+	    		 
+	    		
+	    		 l1.setFont(font);
+	    		 l2.setFont(font);
 	    		rw.add(l1);
+	    		rw.add(l2);
 	    		rw.setSize(1920,1080);  
 		    	rw.setLayout(null);  
 		    	rw.setVisible(true); 
@@ -164,20 +175,42 @@ class login extends Admin{
 		    	}
 	    	if(return_wala == 1) {
 	    		JFrame rw = new JFrame("Home Isolation!!!!");
-	    		JLabel l1 = new JLabel("you have been reported corona positive but u don't have some other fatal diseases,so you are recommended 14 days of Home Isoltion");
-	    		l1.setPreferredSize(new Dimension(250, 100));
-	    		l1.setBounds(700,100,155,20);
+	    		JLabel l1 = new JLabel("you have been reported corona positive but u don't have some other fatal diseases,");
+	    		JLabel l2=new JLabel("so you are recommended 14 days of Home Isoltion");		
+	    		
+	    		l1.setBounds(100,100,1100,40);
+	    		l2.setBounds(100,150,1100,40);
+	    		Font font = new Font("Courier", Font.BOLD,20);
+	    		l1.setForeground(Color.RED);
+	    		l2.setForeground(Color.RED);
+	    		 
+	    		
+	    		 l1.setFont(font);
+	    		 l2.setFont(font);
 	    		rw.add(l1);
+	    		rw.add(l2);
 	    		rw.setSize(1920,1080);  
 		    	rw.setLayout(null);  
 		    	rw.setVisible(true); 
 	    	}
 	    	if(return_wala == 2) {
 	    		JFrame rw = new JFrame("No Corona!!! ");
-	    		JLabel l1 = new JLabel("you have been reported corona negative but u have some other fatal diseases,so you are Shifted to normal wards that are properly santized to prevent u from corona ");
-	    		l1.setPreferredSize(new Dimension(250, 100));
-	    		l1.setBounds(700,100,155,20);
+	    		JLabel l1 = new JLabel("you have been reported corona negative but u have some other fatal diseases,");
+	    		JLabel l2= new JLabel("so you are Shifted to normal wards that are properly santized to prevent u from corona!");
+	    		 
+	    		 //set font for JLabel
+	    		
+	    		l1.setBounds(100,100,1100,40);
+	    		l2.setBounds(100,150,1100,40);
+	    		Font font = new Font("Courier", Font.BOLD,20);
+	    		l1.setForeground(Color.GREEN);
+	    		l2.setForeground(Color.GREEN);
+	    		 
+	    		 //set font for JLabel
+	    		 l1.setFont(font);
+	    		 l2.setFont(font);
 	    		rw.add(l1);
+	    		rw.add(l2);
 	    		rw.setSize(1920,1080);  
 		    	rw.setLayout(null);  
 		    	rw.setVisible(true);
@@ -207,6 +240,14 @@ class login extends Admin{
 		dl.setLayout(null);
 		dl.setVisible(true);
 	}
+	    
+	    
+	    public static void bill() {
+	    		    }
+	    
+	    
+	    
+	    
 }
   
     class Navigation extends login{  
@@ -220,6 +261,8 @@ class login extends Admin{
         JButton b3=new JButton("Patients list"); 
         b3.setBounds(700,250,155,30);
         b2.setBounds(700,200,155,30);
+        JButton b4=new JButton("Discharge");
+        b4.setBounds(700,300,155,30);
         b0.addActionListener( new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -252,10 +295,20 @@ class login extends Admin{
                 Patient_list();
             }
         });
+        
+        b4.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                bill();
+            }
+        });
+        
         f.add(b0);  
         f.add(b1); 
         f.add(b2); 
         f.add(b3);
+        f.add(b4);
         f.setSize(1920,1080);  
         f.setLayout(null);  
         f.setVisible(true);   
